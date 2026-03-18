@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
 import { useTypingEffect } from "./useTypingEffect";
 import { ArrowDown, ExternalLink } from "lucide-react";
+import BlurredBackground from "./BlurredBackground";
 
 const HeroSection = () => {
   const { displayed, done } = useTypingEffect("From Street Survival… To Digital Success", 45, 300);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      <BlurredBackground image="kigali" opacity="opacity-30" />
+
       {/* Floating glass elements */}
       <motion.div
         className="absolute top-32 left-[10%] w-20 h-20 glass-panel rounded-2xl opacity-30"
@@ -24,10 +27,6 @@ const HeroSection = () => {
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/5 blur-[120px]" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-secondary/5 blur-[100px]" />
-
       <div className="container mx-auto px-6 text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -39,13 +38,13 @@ const HeroSection = () => {
           </span>
         </motion.div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold leading-tight min-h-[1.2em]">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-extrabold leading-tight min-h-[1.2em] tracking-tight">
           <span className="gradient-neon-text">{displayed}</span>
           {!done && <span className="animate-pulse text-primary">|</span>}
         </h1>
 
         <motion.p
-          className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto font-body"
+          className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto font-body font-light"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 0.8 }}
@@ -61,13 +60,13 @@ const HeroSection = () => {
         >
           <a
             href="#mission"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg gradient-neon text-primary-foreground font-display font-semibold text-sm tracking-wide hover:opacity-90 transition-opacity neon-glow-cyan"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl gradient-neon text-primary-foreground font-display font-semibold text-sm tracking-wide hover:opacity-90 transition-opacity neon-glow-cyan"
           >
             Explore Our Story <ArrowDown size={16} />
           </a>
           <a
             href="#prototype"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg glass-panel-neon text-primary font-display font-semibold text-sm tracking-wide hover-lift"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl glass-panel-neon text-primary font-display font-semibold text-sm tracking-wide hover-lift"
           >
             View Prototype <ExternalLink size={16} />
           </a>
